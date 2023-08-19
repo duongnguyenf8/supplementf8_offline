@@ -172,7 +172,7 @@ var html = `
   </tr>
 </thead>
 <tbody>
-  ${customerArr(100)
+  ${customerArr(10)
     .map((customer) => {
       return `<tr>
       ${Object.keys(customer)

@@ -28,7 +28,7 @@
 
 ### Viết chương trình tính giá trị bình phương của một số.
 
-### Viết chương trình tính giá trị căn bậc hai của một số.
+### Viết chương trình tính giá trị căn bậc hai của một số nguyên.
 
 ### Viết chương trình tìm phần tử thứ n của dãy Fibonacci.
 
