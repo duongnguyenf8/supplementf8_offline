@@ -203,7 +203,7 @@
   - Nếu số đó là số nguyên tố và có 3 chữ số, thì in ra số đó.
   - Sử dụng hàm `sort()` để sắp xếp các số trong mảng theo thứ tự giảm dần.
 
-- **Input: [-234, 45, -567, -7, 890] => Output: [890, -234, -567,]**
+- **Input: [-234, 45, -567, -7, 890] => Output: [890, -234, -567]**
 
 ## Phần 3
 
