@@ -1,6 +1,6 @@
-1. Tạo một đối tượng có tên là `product` với các thuộc tính sau:
+1. Tạo một hàm tạo có tên `Product()` và một đối tượng có tên là `product` với các thuộc tính sau:
 
-   - `id`: id DUY NHẤT của sản phẩm
+   - `id`: id DUY NHẤT của sản phẩm, được tạo tự động trong hàm tạo `Product()`.
 
    - `name`: Tên sản phẩm
 
@@ -12,11 +12,11 @@
 
 ---
 
-3. Tạo một đối tượng có tên là `order` với các thuộc tính sau:
+3. Tạo một hàm tạo có tên `Order()` đối tượng có tên là `order` với các thuộc tính sau:
 
-   - `id`: id DUY NHẤT đơn hàng
+   - `id`: id DUY NHẤT đơn hàng, được tạo tự động trong hàm tạo `Order()`.
 
-   - `status`: Trạng thái đơn hàng
+   - `status`: Trạng thái đơn hàng, được tạo tự động trong hàm tạo `Order()`, giá trị mặc định là **`"chưa hoàn thành"`**.
 
    - `product_id`: Chứa ID của product
 
@@ -30,13 +30,21 @@
 
    - Hàm tạo `Product()` chỉ nhận vào **name, quantity, price** và không nhận ID
 
-6. Tạo một hàm có tên là `createOrder()` để thêm một sản phẩm vào đơn hàng. Hàm này cần nhận vào **hai** tham số là ID sản phẩm và số lượng. Trả về order đã create
+6. Tạo một hàm có tên là `createOrder()` để thêm một sản phẩm vào đơn hàng. Hàm này cần nhận vào **hai** tham số là ID sản phẩm và số lượng. Trả về order đã create được tạo bằng hàm tạo `Order()`
 
 7. Tạo một hàm có tên là `updateOrder()` để thay đổi một đơn hàng. Hàm này cần nhận vào **hai** tham số là ID đơn hàng và số lượng mới. Trả về order vừa được update
 
 8. Tạo một hàm có tên là `getOrder()` để lấy thông tin về một đơn hàng. Hàm này cần nhận vào **một** tham số là ID đơn hàng. Cần trả về **id, status, product_id, product_quantity, `total_price`, `product_name`**
 
+- `total_price` được tạo bằng cách lấy thông tin product từ `product_id`, sau đó lấy được `price`, nhân với `product_quantity`
+
+- `product_name` được tạo bằng cách lấy thông tin product từ `product_id`
+
 9. Tạo một hàm có tên là `listOrders()` để liệt kê **tất cả** các đơn hàng. Cần trả về **id, status, product_id, product_quantity, `total_price`, `product_name`** với **mỗi order**
+
+- `total_price` được tạo bằng cách lấy thông tin product từ `product_id`, sau đó lấy được `price`, nhân với `product_quantity`
+
+- `product_name` được tạo bằng cách lấy thông tin product từ `product_id`
 
 10. Tạo một hàm có tên là `updateOrderStatus()` để cập nhật trạng thái của một đơn hàng. Hàm này cần nhận vào **hai** tham số là ID đơn hàng và trạng thái mới của đơn hàng. Trả về order vừa được update
 
@@ -44,17 +52,23 @@
 
 12. Tạo 1 hàm có tên là `findOrder()` để tìm **tất cả** các order có cùng 1 id sản phẩm, nhận vào **một** tham số là id sản phẩm, trả về 1 mảng chứa các phần tử order tương ứng với id sản phẩm đã tìm, chứa **id, status, product_id, product_quantity, `total_price`, `product_name`** với **mỗi order**
 
+- `total_price` được tạo bằng cách lấy thông tin product từ `product_id`, sau đó lấy được `price`, nhân với `product_quantity`
+
+- `product_name` được tạo bằng cách lấy thông tin product từ `product_id`
+
 ---
 
 Ví dụ về cách sử dụng các hàm này:
 
 ```javascript
+// Tạo một product
+const product = new Product("Con mèo", 200, 100000); // tên, số lượng, giá
+
 // Tạo một product mới
-const product = new Product("Con mèo", 200, 100000);
 addProduct(product);
 
 // Tạo một order mới
-createOrder(id_san_pham, so_luong_san_pham);
+createOrder(id_san_pham, so_luong_san_pham); // Trong hàm này gọi đến hàm tạo Order()
 
 // Tìm nhiều đơn hàng
 findOrder(id_don_hang);
